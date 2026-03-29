@@ -1,0 +1,400 @@
+@import "tailwindcss";
+
+/* ============================================
+   KANCHIPURAM SILK WEDDING INVITATION
+   Design System & Custom Styles
+   ============================================ */
+
+@theme {
+  --color-primary: #B22222;
+  --color-gold-accent: #D4AF37;
+  --color-dark-zari: #996515;
+  --color-silk-ivory: #FDFBF7;
+  --color-bg-light: #f8f6f6;
+  --color-bg-dark: #201212;
+
+  --font-display: "Work Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
+/* ============================================
+   CSS Custom Properties
+   ============================================ */
+:root {
+  --kanchipuram-red: #B22222;
+  --liquid-gold: #D4AF37;
+  --dark-gold: #996515;
+  --silk-ivory: #FDFBF7;
+}
+
+
+
+
+#root {
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-display);
+  background-color: var(--color-bg-light);
+  color: #1e293b;
+  min-height: 100vh;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   Zari Border — Outer Frame (Saree Pallu)
+   ============================================ */
+.zari-border-outer {
+  border: 40px solid var(--kanchipuram-red);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2), 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .zari-border-outer {
+    border-width: 12px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.15), 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ============================================
+   Silk Damask Pattern — Background Texture
+   ============================================ */
+.zari-creeper-pattern-dense {
+  background-color: #FDFBF7;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 C10 20 30 20 40 40 C50 60 70 60 80 40 M0 10 C10 -10 30 -10 40 10 C50 30 70 30 80 10 M0 70 C10 50 30 50 40 70 C50 90 70 90 80 70' stroke='%23996515' stroke-width='2' fill='none' opacity='0.4'/%3E%3Cpath d='M15 25 Q20 15 30 20 Q25 30 15 25 M45 55 Q50 45 60 50 Q55 60 45 55 M15 65 Q20 55 30 60 Q25 70 15 65 M65 15 Q70 5 80 10 Q75 20 65 15' fill='%23996515' opacity='0.5'/%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23996515' opacity='0.6'/%3E%3Cpath d='M5 5 L15 15 M75 75 L65 65 M75 5 L65 15 M5 75 L15 65' stroke='%23996515' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* ============================================
+   Header / Footer Zari Overlay
+   ============================================ */
+.header-zari-overlay {
+  background-color: var(--kanchipuram-red);
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 C15 20 35 20 50 50 C65 80 85 80 100 50 M0 10 C15 -20 35 -20 50 10 C65 40 85 40 100 10 M0 90 C15 60 35 60 50 90 C65 120 85 120 100 90' stroke='%23D4AF37' stroke-width='2.5' fill='none' opacity='0.3'/%3E%3Cpath d='M25 40 Q30 25 45 35 Q38 50 25 40 M75 40 Q80 25 95 35 Q88 50 75 40 M25 80 Q30 65 45 75 Q38 90 25 80 M75 80 Q80 65 95 75 Q88 90 75 80' fill='%23D4AF37' opacity='0.4'/%3E%3C/svg%3E");
+  background-blend-mode: soft-light;
+  box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   Content Panel — Glassmorphism Card
+   ============================================ */
+.content-panel {
+  background: rgba(253, 251, 247, 0.92);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(153, 101, 21, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   Gold Glow Text Effect
+   ============================================ */
+.gold-glow {
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* ============================================
+   Pallu Double Border Accent
+   ============================================ */
+.pallu-accent {
+  border-bottom: 8px double var(--liquid-gold);
+  border-top: 8px double var(--liquid-gold);
+}
+
+/* ============================================
+   ENTRANCE CURTAIN ANIMATION
+   Section A — The Grand Entrance
+   ============================================ */
+.curtain-container {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  pointer-events: all;
+}
+
+.curtain-panel {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.curtain-left {
+  background: linear-gradient(135deg, var(--kanchipuram-red) 0%, #8B1A1A 50%, var(--kanchipuram-red) 100%);
+  transform-origin: left center;
+}
+
+.curtain-right {
+  background: linear-gradient(225deg, var(--kanchipuram-red) 0%, #8B1A1A 50%, var(--kanchipuram-red) 100%);
+  transform-origin: right center;
+}
+
+/* Zari pattern on curtain panels */
+.curtain-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q35 15 30 25 Q25 15 30 5' fill='%23D4AF37' opacity='0.3'/%3E%3Cpath d='M10 30 Q20 25 30 30 Q20 35 10 30' fill='%23D4AF37' opacity='0.25'/%3E%3Cpath d='M30 35 Q35 45 30 55 Q25 45 30 35' fill='%23D4AF37' opacity='0.3'/%3E%3Ccircle cx='30' cy='30' r='2' fill='%23D4AF37' opacity='0.5'/%3E%3Ccircle cx='10' cy='10' r='1' fill='%23D4AF37' opacity='0.3'/%3E%3Ccircle cx='50' cy='50' r='1' fill='%23D4AF37' opacity='0.3'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Gold vertical border on inner edges */
+.curtain-left::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(180deg,
+      var(--liquid-gold) 0%,
+      var(--dark-gold) 30%,
+      var(--liquid-gold) 50%,
+      var(--dark-gold) 70%,
+      var(--liquid-gold) 100%);
+  opacity: 0.7;
+  box-shadow: -5px 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.curtain-right::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  background: linear-gradient(180deg,
+      var(--liquid-gold) 0%,
+      var(--dark-gold) 30%,
+      var(--liquid-gold) 50%,
+      var(--dark-gold) 70%,
+      var(--liquid-gold) 100%);
+  opacity: 0.7;
+  box-shadow: 5px 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Center ornament overlay */
+.curtain-ornament {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  text-align: center;
+  color: var(--liquid-gold);
+  animation: ornamentPulse 2s ease-in-out infinite;
+}
+
+.curtain-ornament h2 {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.curtain-ornament p {
+  font-size: 0.9rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+@keyframes ornamentPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Animation: curtains slide open */
+.curtain-opening .curtain-left {
+  animation: curtainSlideLeft 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.curtain-opening .curtain-right {
+  animation: curtainSlideRight 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.curtain-opening .curtain-ornament {
+  animation: ornamentFade 0.6s ease-out forwards;
+}
+
+@keyframes curtainSlideLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes curtainSlideRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes ornamentFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+}
+
+/* ============================================
+   Smooth Scroll Behavior
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============================================
+   Custom Scrollbar (webkit)
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--silk-ivory);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dark-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--liquid-gold);
+}
+
+/* ============================================
+   Section Fade-In Animation
+   ============================================ */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   Stitch Animation Container Styles
+   ============================================ */
+.stitch-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.stitch-container iframe,
+.stitch-container canvas {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: contain;
+}
+
+/* ============================================
+   Lotus Divider SVG Animation
+   ============================================ */
+@keyframes lotusBloom {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+}
+
+.lotus-animate {
+  animation: lotusBloom 4s ease-in-out infinite;
+}
+
+/* ============================================
+   Hover Lift Effect for Cards
+   ============================================ */
+.hover-lift {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   Mobile Navigation Overlay
+   ============================================ */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(178, 34, 34, 0.97);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ============================================
+   Map Hover Zoom
+   ============================================ */
+.map-zoom-container {
+  overflow: hidden;
+}
+
+.map-zoom-container img {
+  transition: transform 1s ease;
+}
+
+.map-zoom-container:hover img {
+  transform: scale(1.1);
+}
