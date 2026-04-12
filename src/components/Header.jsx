@@ -14,7 +14,7 @@ export default function Header({ activeSection }) {
     const navItems = [
         { id: 'story', label: t.navOurStory, href: '#story' },
         { id: 'ceremony', label: t.navCeremony, href: '#ceremony' },
-        { id: 'location', label: t.navLocation, href: '#location' },
+        // { id: 'location', label: t.navLocation, href: '#location' },
     ];
 
     const scrollTo = (e, href) => {
@@ -68,13 +68,6 @@ export default function Header({ activeSection }) {
                                 </a>
                             ))}
                         </nav>
-                        <a
-                            href="#rsvp"
-                            onClick={(e) => scrollTo(e, '#ceremony')}
-                            className="flex min-w-[130px] md:min-w-[150px] cursor-pointer items-center justify-center h-11 md:h-12 px-6 md:px-8 bg-[#D4AF37] text-[#B22222] text-sm font-black uppercase tracking-[0.2em] hover:bg-white hover:text-[#B22222] transition-all border-2 border-[#996515] shadow-lg"
-                        >
-                            {t.navRsvp}
-                        </a>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -122,13 +115,7 @@ export default function Header({ activeSection }) {
                     </a>
                 ))}
 
-                <a
-                    href="#rsvp"
-                    onClick={(e) => scrollTo(e, '#ceremony')}
-                    className="mt-4 px-10 py-4 bg-[#D4AF37] text-[#B22222] font-black uppercase tracking-[0.2em] text-sm border-2 border-[#996515]"
-                >
-                    {t.navRsvp}
-                </a>
+
             </div>
         </>
     );

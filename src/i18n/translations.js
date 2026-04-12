@@ -19,7 +19,7 @@ const translations = {
         navOurStory: 'Our Story',
         navCeremony: 'Ceremony',
         navLocation: 'Location',
-        navRsvp: 'RSVP',
+
 
         // HeroSection
         theSacredUnion: 'The Sacred Union',
@@ -29,20 +29,41 @@ const translations = {
         greetingPrefix: 'Dear',
         greetingSuffix: ',',
         invitationBody:
-            'We cordially invite you to celebrate our union in the tradition of Kanchipuram elegance and grace. Join us as we begin our new journey together under the blessings of our elders.',
+            'With hearts full of love and joy, we cordially invite your esteemed presence along with your family to grace our wedding. Your blessings and presence would make our celebration truly complete as we begin this beautiful new journey together.',
         saveTheDate: 'Save the Date',
         weddingDate: '3rd May 2025',
 
         // EventDetails
         eventDetails: 'Event Details',
-        muhurtham: 'Muhurtham',
-        sundayMorning: 'Sunday Morning',
-        ceremonyTime: '10:30 AM — 12:00 PM',
-        ceremonyDate: 'November 24th, 2023',
-        theVenue: 'The Venue',
-        venueArea: 'Grand Palace Grounds',
-        venueName: 'The Royal Ballroom',
-        venueAddress: 'Jaymahal Road, Bangalore',
+        eventsList: [
+            {
+                title: 'Prewedding Reception',
+                date: 'May 02, 2025',
+                time: '6:00 PM Onwards',
+                venueArea: 'Nelamangala, Bangalore North',
+                venueName: 'SLR Conventional Hall',
+                venueAddress: 'Tumkur Road, Opposite Anjeneya Statue',
+                mapUrl: 'https://share.google/LjcEuOHejNRFg5Tkn',
+            },
+            {
+                title: 'Wedding',
+                date: 'May 03, 2025',
+                time: '08:15 AM - 09:30 AM',
+                venueArea: 'Nelamangala, Bangalore North',
+                venueName: 'SLR Conventional Hall',
+                venueAddress: 'Tumkur Road, Opposite Anjeneya Statue',
+                mapUrl: 'https://share.google/LjcEuOHejNRFg5Tkn',
+            },
+            {
+                title: 'Post Wedding Reception',
+                date: 'May 04, 2025',
+                time: '5:00 PM Onwards',
+                venueArea: 'Kozhikode, Kerala',
+                venueName: 'Srushty Residence',
+                venueAddress: 'Meppayur, Payyoli, Near 110KV KSEB Substation',
+                mapUrl: 'https://share.google/GWWk075M33qyUuUyo',
+            }
+        ],
         navigateToVenue: 'Navigate to Venue',
 
         // StitchAnimationContainer
@@ -63,7 +84,7 @@ const translations = {
         navOurStory: 'ನಮ್ಮ ಕಥೆ',
         navCeremony: 'ಮುಹೂರ್ತ',
         navLocation: 'ಸ್ಥಳ',
-        navRsvp: 'ಪ್ರತಿಕ್ರಿಯೆ',
+
 
         // HeroSection
         theSacredUnion: 'ಪವಿತ್ರ ಬಂಧನ',
@@ -73,20 +94,41 @@ const translations = {
         greetingPrefix: 'ಆತ್ಮೀಯ',
         greetingSuffix: ',',
         invitationBody:
-            'ಕಾಂಚೀಪುರಂ ಸೊಬಗು ಮತ್ತು ಘನತೆಯ ಸಂಪ್ರದಾಯದಲ್ಲಿ ನಮ್ಮ ಮಿಲನವನ್ನು ಆಚರಿಸಲು ನಿಮ್ಮನ್ನು ಸಹೃದಯವಾಗಿ ಆಹ್ವಾನಿಸುತ್ತೇವೆ. ನಮ್ಮ ಹಿರಿಯರ ಆಶೀರ್ವಾದದೊಂದಿಗೆ ನಮ್ಮ ಹೊಸ ಪಯಣವನ್ನು ಪ್ರಾರಂಭಿಸುವಾಗ ನಮ್ಮೊಂದಿಗೆ ಸೇರಿ.',
+            'ಪ್ರೀತಿ ಮತ್ತು ಸಂತೋಷದ ತುಂಬಿದ ಹೃದಯದಿಂದ, ನಮ್ಮ ವಿವಾಹಕ್ಕೆ ನಿಮ್ಮನ್ನು ಮತ್ತು ನಿಮ್ಮ ಕುಟುಂಬವನ್ನು ಗೌರವಪೂರ್ವಕವಾಗಿ ಆಹ್ವಾನಿಸುತ್ತೇವೆ. ನಾವು ಈ ಸುಂದರ ಹೊಸ ಜೀವನದ ಪಯಣವನ್ನು ಪ್ರಾರಂಭಿಸಿದಾಗ ನಿಮ್ಮ ಆಶೀರ್ವಾದ ಮತ್ತು ಉಪಸ್ಥಿತಿಯು ಈ ಸಂಭ್ರಮವನ್ನು ಪೂರ್ಣಗೊಳಿಸುತ್ತದೆ.',
         saveTheDate: 'ದಿನಾಂಕ ನೆನಪಿಡಿ',
         weddingDate: '೩ ಮೇ ೨೦೨೫',
 
         // EventDetails
         eventDetails: 'ಕಾರ್ಯಕ್ರಮದ ವಿವರಗಳು',
-        muhurtham: 'ಮುಹೂರ್ತ',
-        sundayMorning: 'ಭಾನುವಾರ ಬೆಳಿಗ್ಗೆ',
-        ceremonyTime: '೧೦:೩೦ AM — ೧೨:೦೦ PM',
-        ceremonyDate: 'ನವೆಂಬರ್ ೨೪, ೨೦೨೩',
-        theVenue: 'ಸ್ಥಳ',
-        venueArea: 'ಗ್ರ್ಯಾಂಡ್ ಪ್ಯಾಲೇಸ್ ಮೈದಾನ',
-        venueName: 'ದಿ ರಾಯಲ್ ಬಾಲ್‌ರೂಮ್',
-        venueAddress: 'ಜಯಮಹಲ್ ರಸ್ತೆ, ಬೆಂಗಳೂರು',
+        eventsList: [
+            {
+                title: 'Prewedding Reception',
+                date: 'May 02, 2025',
+                time: '6:00 PM Onwards',
+                venueArea: 'Nelamangala, Bangalore North',
+                venueName: 'SLR Conventional Hall',
+                venueAddress: 'Tumkur Road, Opposite Anjeneya Statue',
+                mapUrl: 'https://share.google/LjcEuOHejNRFg5Tkn',
+            },
+            {
+                title: 'Wedding',
+                date: 'May 03, 2025',
+                time: '08:15 AM - 09:30 AM',
+                venueArea: 'Nelamangala, Bangalore North',
+                venueName: 'SLR Conventional Hall',
+                venueAddress: 'Tumkur Road, Opposite Anjeneya Statue',
+                mapUrl: 'hhttps://share.google/LjcEuOHejNRFg5Tkn',
+            },
+            {
+                title: 'Post Wedding Reception',
+                date: 'May 04, 2025',
+                time: '5:00 PM Onwards',
+                venueArea: 'Kozhikode, Kerala',
+                venueName: 'Srushty Residence',
+                venueAddress: 'Meppayur, Payyoli, Near 110KV KSEB Substation',
+                mapUrl: 'https://share.google/GWWk075M33qyUuUyo',
+            }
+        ],
         navigateToVenue: 'ಸ್ಥಳಕ್ಕೆ ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ',
 
         // StitchAnimationContainer
@@ -107,7 +149,7 @@ const translations = {
         navOurStory: 'ഞങ്ങളുടെ കഥ',
         navCeremony: 'മുഹൂർത്തം',
         navLocation: 'സ്ഥലം',
-        navRsvp: 'പ്രതികരണം',
+
 
         // HeroSection
         theSacredUnion: 'പവിത്ര ബന്ധനം',
@@ -117,20 +159,41 @@ const translations = {
         greetingPrefix: 'പ്രിയ',
         greetingSuffix: ',',
         invitationBody:
-            'കാഞ്ചീപുരം പാരമ്പര്യത്തിന്റെ മഹിമയിലും ഗാംഭീര്യത്തിലും ഞങ്ങളുടെ വിവാഹം ആഘോഷിക്കാൻ നിങ്ങളെ സഹൃദയം ക്ഷണിക്കുന്നു. ഞങ്ങളുടെ മുതിർന്നവരുടെ അനുഗ്രഹത്തോടെ പുതിയ ജീവിത യാത്ര ആരംഭിക്കുമ്പോൾ ഞങ്ങളോടൊപ്പം ചേരുക.',
+            'സ്നേഹവും സന്തോഷവും നിറഞ്ഞ ഹൃദയത്തോടെ, ഞങ്ങളുടെ വിവാഹത്തിലേക്ക് നിങ്ങളെയും കുടുംബത്തെയും ഞങ്ങൾ സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നു. ഞങ്ങൾ ഈ മനോഹരമായ പുതിയ ജീവിതയാത്ര ആരംഭിക്കുമ്പോൾ നിങ്ങളുടെ സാന്നിധ്യവും അനുഗ്രഹങ്ങളും ഈ ആഘോഷത്തെ പൂർണ്ണമാക്കും.',
         saveTheDate: 'തീയതി ഓർക്കുക',
         weddingDate: '3 മെയ് 2025',
 
         // EventDetails
         eventDetails: 'ചടങ്ങ് വിവരങ്ങൾ',
-        muhurtham: 'മുഹൂർത്തം',
-        sundayMorning: 'ഞായറാഴ്ച രാവിലെ',
-        ceremonyTime: '10:30 AM — 12:00 PM',
-        ceremonyDate: 'നവംബർ 24, 2023',
-        theVenue: 'വേദി',
-        venueArea: 'ഗ്രാൻഡ് പാലസ് ഗ്രൗണ്ട്സ്',
-        venueName: 'ദ റോയൽ ബോൾറൂം',
-        venueAddress: 'ജയമഹൽ റോഡ്, ബെംഗളൂരു',
+        eventsList: [
+            {
+                title: 'Prewedding Reception',
+                date: 'May 02, 2025',
+                time: '6:00 PM Onwards',
+                venueArea: 'Nelamangala, Bangalore North',
+                venueName: 'SLR Conventional Hall',
+                venueAddress: 'Tumkur Road, Opposite Anjeneya Statue',
+                mapUrl: 'https://maps.google.com/?q=SLR+Conventional+Hall+Nelamangala',
+            },
+            {
+                title: 'Wedding',
+                date: 'May 03, 2025',
+                time: '08:15 AM - 09:30 AM',
+                venueArea: 'Nelamangala, Bangalore North',
+                venueName: 'SLR Conventional Hall',
+                venueAddress: 'Tumkur Road, Opposite Anjeneya Statue',
+                mapUrl: 'https://maps.google.com/?q=SLR+Conventional+Hall+Nelamangala',
+            },
+            {
+                title: 'Post Wedding Reception',
+                date: 'May 04, 2025',
+                time: '5:00 PM Onwards',
+                venueArea: 'Kozhikode, Kerala',
+                venueName: 'Srushty Residence',
+                venueAddress: 'Meppayur, Payyoli, Near 110KV KSEB Substation',
+                mapUrl: 'https://maps.google.com/?q=Meppayur+Payyoli+Kerala',
+            }
+        ],
         navigateToVenue: 'വേദിയിലേക്ക് നാവിഗേറ്റ് ചെയ്യുക',
 
         // StitchAnimationContainer

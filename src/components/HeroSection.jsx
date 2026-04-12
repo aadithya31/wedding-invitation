@@ -15,6 +15,50 @@ export default function HeroSection({ guestName }) {
         ? `${t.greetingPrefix} ${guestName}${t.greetingSuffix}`
         : t.greetingDefault;
 
+    // Generate and download a single .ics file with all 3 wedding events
+    const saveAllDates = () => {
+        const icsContent = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Aadithya & Poorvika Wedding//EN',
+            'CALSCALE:GREGORIAN',
+            'METHOD:PUBLISH',
+            // Event 1: Prewedding Reception
+            'BEGIN:VEVENT',
+            'DTSTART:20250502T123000Z',
+            'DTEND:20250502T163000Z',
+            'SUMMARY:Prewedding Reception – Aadithya & Poorvika',
+            'DESCRIPTION:Prewedding Reception of Aadithya & Poorvika. Your presence and blessings are humbly requested.',
+            'LOCATION:SLR Conventional Hall\\, Tumkur Road\\, Opposite Anjeneya Statue\\, Nelamangala\\, Bangalore North',
+            'STATUS:CONFIRMED',
+            'END:VEVENT',
+            // Event 2: Wedding Muhurtham
+            'BEGIN:VEVENT',
+            'DTSTART:20250503T024500Z',
+            'DTEND:20250503T040000Z',
+            'SUMMARY:Wedding of Aadithya & Poorvika',
+            'DESCRIPTION:Muhurtham | The Wedding of Aadithya & Poorvika. Your presence and blessings are humbly requested.',
+            'LOCATION:SLR Conventional Hall\\, Tumkur Road\\, Opposite Anjeneya Statue\\, Nelamangala\\, Bangalore North',
+            'STATUS:CONFIRMED',
+            'END:VEVENT',
+            // Event 3: Post Wedding Reception
+            'BEGIN:VEVENT',
+            'DTSTART:20250504T113000Z',
+            'DTEND:20250504T153000Z',
+            'SUMMARY:Post Wedding Reception – Aadithya & Poorvika',
+            'DESCRIPTION:Post Wedding Reception of Aadithya & Poorvika at Srushty Residence\\, Kozhikode.',
+            'LOCATION:Srushty Residence\\, Meppayur\\, Payyoli\\, Near 110KV KSEB Substation\\, Kozhikode\\, Kerala',
+            'STATUS:CONFIRMED',
+            'END:VEVENT',
+            'END:VCALENDAR',
+        ].join('\r\n');
+
+        const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        // Navigate to the blob URL so the OS opens it with the calendar app directly
+        window.location.href = url;
+    };
+
     return (
         <section id="story" className="z-10 w-full">
             <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-15 text-center">
@@ -22,7 +66,7 @@ export default function HeroSection({ guestName }) {
                 {/* Decorative "Sacred Union" header */}
                 <div className="mb-10 md:mb-14 flex justify-center items-center gap-4 md:gap-8 section-reveal">
                     <div className="w-16 md:w-24 h-[3px] bg-gradient-to-r from-transparent to-[#996515]" />
-                    <span className="text-[#996515] font-serif italic text-lg md:text-2xl tracking-widest">
+                    <span className="text-[#996515] bg-[#FDFBF7] px-4 py-1 font-serif italic text-lg md:text-2xl tracking-widest">
                         {t.theSacredUnion}
                     </span>
                     <div className="w-16 md:w-24 h-[3px] bg-gradient-to-l from-transparent to-[#996515]" />
@@ -75,16 +119,19 @@ export default function HeroSection({ guestName }) {
 
                 {/* CTA Row: Save the Date + Date Card */}
                 <div className="mt-8 md:mt-12 flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center section-reveal">
-                    <button className="bg-[#B22222] hover:bg-[#B22222]/90 text-[#FDFBF7] px-10 md:px-16 py-4 md:py-6 font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-md border-2 border-[#D4AF37] transition-all shadow-2xl hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(0,0,0,0.2)]">
+                    <button
+                        onClick={saveAllDates}
+                        className="bg-[#B22222] hover:bg-[#B22222]/90 text-[#FDFBF7] px-10 md:px-16 py-4 md:py-6 font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-md border-2 border-[#D4AF37] transition-all shadow-2xl hover:-translate-y-1 hover:shadow-[0_25px_60px_rgba(0,0,0,0.2)]"
+                    >
                         {t.saveTheDate}
                     </button>
-
+                    {/* 
                     <div className="flex flex-col items-center p-4 md:p-6 content-panel border-[#996515]/30">
                         <p className="text-[#B22222] font-serif italic text-2xl md:text-3xl">
                             {t.weddingDate}
                         </p>
                         <div className="h-px w-full bg-[#996515]/50 mt-2" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>
