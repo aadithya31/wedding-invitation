@@ -34,13 +34,8 @@ export default function Header({ activeSection }) {
                     {/* Logo & Title */}
                     <div className="flex items-center gap-2 md:gap-4 overflow-hidden">
                         <div className="w-8 h-8 md:w-12 md:h-12 flex-shrink-0 flex items-center justify-center">
-                            {/* Temple Icon SVG */}
-                            <svg viewBox="0 0 48 48" className="w-full h-full" fill="none">
-                                <path d="M24 4L8 20H16V40H32V20H40L24 4Z" fill="#D4AF37" opacity="0.8" />
-                                <rect x="20" y="28" width="8" height="12" fill="#D4AF37" opacity="0.6" />
-                                <path d="M24 2L22 6L24 4L26 6L24 2Z" fill="#D4AF37" />
-                                <circle cx="24" cy="14" r="3" fill="#FDFBF7" opacity="0.5" />
-                            </svg>
+                            {/* Vite Logo */}
+                            <img src="/vite.svg" alt="Logo" className="w-full h-full object-contain" />
                         </div>
                         <h2
                             className="text-[#D4AF37] text-lg md:text-3xl font-serif font-bold leading-tight tracking-[0.05em] md:tracking-[0.15em] uppercase gold-glow truncate"
@@ -96,14 +91,8 @@ export default function Header({ activeSection }) {
                     ✕
                 </button>
 
-                {/* Decorative lotus */}
-                <svg width="60" height="60" viewBox="0 0 80 80" className="lotus-animate mb-2 opacity-60">
-                    <circle cx="40" cy="40" r="5" fill="#D4AF37" />
-                    <ellipse cx="40" cy="25" rx="6" ry="14" fill="#D4AF37" opacity="0.5" />
-                    <ellipse cx="40" cy="55" rx="6" ry="14" fill="#D4AF37" opacity="0.5" />
-                    <ellipse cx="25" cy="40" rx="14" ry="6" fill="#D4AF37" opacity="0.5" />
-                    <ellipse cx="55" cy="40" rx="14" ry="6" fill="#D4AF37" opacity="0.5" />
-                </svg>
+                {/* Decorative Logo */}
+                <img src="/vite.svg" alt="App Logo" className="w-16 h-16 lotus-animate mb-2 opacity-80 object-contain" />
 
                 {navItems.map((item) => (
                     <a
