@@ -19,6 +19,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('story');
   const [guestName, setGuestName] = useState(null);
   const [isMuted, setIsMuted] = useState(false);
+  const [hasStartedMusic, setHasStartedMusic] = useState(false);
   const audioRef = useRef(null);
 
   // Parse ?name= URL parameter on mount
@@ -46,8 +47,25 @@ export default function App() {
   const handleStartMusic = useCallback(() => {
     if (audioRef.current && audioRef.current.paused) {
       audioRef.current.play().catch(() => { });
+      setHasStartedMusic(true);
     }
   }, []);
+
+  // Handle tab visibility (pause when away, resume when back)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!audioRef.current || !hasStartedMusic) return;
+
+      if (document.hidden) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play().catch(() => {});
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, [hasStartedMusic]);
 
   // Intersection Observer for active section tracking & reveal animations
   const setupObservers = useCallback(() => {
