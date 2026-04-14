@@ -51,20 +51,35 @@ export default function App() {
     }
   }, []);
 
-  // Handle tab visibility (pause when away, resume when back)
+  // Handle tab visibility and window focus (pause when away, resume when back)
   useEffect(() => {
-    const handleVisibilityChange = () => {
+    const handlePause = () => {
       if (!audioRef.current || !hasStartedMusic) return;
-
-      if (document.hidden) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play().catch(() => {});
-      }
+      audioRef.current.pause();
     };
 
+    const handlePlay = () => {
+      if (!audioRef.current || !hasStartedMusic) return;
+      audioRef.current.play().catch(() => {});
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) handlePause();
+      else handlePlay();
+    };
+
+    // Pauses when clicking outside the browser or minimizing
+    window.addEventListener("blur", handlePause);
+    // Resumes when clicking back into the browser
+    window.addEventListener("focus", handlePlay);
+    // Handles tab switching
     document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener("blur", handlePause);
+      window.removeEventListener("focus", handlePlay);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
   }, [hasStartedMusic]);
 
   // Intersection Observer for active section tracking & reveal animations
