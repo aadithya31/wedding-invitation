@@ -8,27 +8,19 @@ import useTranslation from '../i18n/useTranslation';
  * after a brief delay, revealing the wedding invitation beneath.
  * Features Kanchipuram silk zari patterns on the curtain panels.
  */
-export default function EntranceCurtain() {
+export default function EntranceCurtain({ onOpen }) {
     const [isOpening, setIsOpening] = useState(false);
     const [isRemoved, setIsRemoved] = useState(false);
     const t = useTranslation();
 
-    useEffect(() => {
-        // Start opening animation after 2s delay
-        const openTimer = setTimeout(() => {
-            setIsOpening(true);
-        }, 2000);
-
+    const handleCurtainOpen = () => {
+        setIsOpening(true);
+        if (onOpen) onOpen();
         // Remove curtain from DOM after animation completes
-        const removeTimer = setTimeout(() => {
+        setTimeout(() => {
             setIsRemoved(true);
-        }, 3800);
-
-        return () => {
-            clearTimeout(openTimer);
-            clearTimeout(removeTimer);
-        };
-    }, []);
+        }, 1800);
+    };
 
     if (isRemoved) return null;
 
@@ -63,6 +55,15 @@ export default function EntranceCurtain() {
 
                 <h2>{t.coupleNames}</h2>
                 <p>{t.requestPresence}</p>
+
+                <button
+                    onClick={handleCurtainOpen}
+                    className="mt-8 px-10 py-3 rounded-full bg-gradient-to-r from-[#996515] via-[#D4AF37] to-[#996515] text-[#FDFBF7] font-semibold tracking-widest uppercase text-sm shadow-[0_4px_20px_rgba(212,175,55,0.4)] hover:shadow-[0_6px_25px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300 border border-[#D4AF37]/50 cursor-pointer relative overflow-hidden group"
+                >
+                    <span className="md:hidden">Tap Me</span>
+                    <span className="hidden md:inline">Click Me</span>
+                    <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out" />
+                </button>
             </div>
 
             {/* Right curtain panel */}

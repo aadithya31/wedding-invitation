@@ -1,4 +1,6 @@
 import useTranslation from '../i18n/useTranslation';
+import groomImg from '../assets/Groom.jpg';
+import brideImg from '../assets/Bride.jpeg';
 
 /**
  * HeroSection — Section B: The Card
@@ -9,6 +11,11 @@ import useTranslation from '../i18n/useTranslation';
  */
 export default function HeroSection({ guestName }) {
     const t = useTranslation();
+
+    // Split the couple's short names to place images above them individually
+    const names = (t.coupleShortNames || "").split(' & ');
+    // const groomName = names[0] || 'Aadi';
+    // const brideName = names[1] || 'Poorvi';
 
     // Dynamic greeting: personalized name or fallback
     const greeting = guestName
@@ -76,19 +83,31 @@ export default function HeroSection({ guestName }) {
                 <div className="mb-12 md:mb-16 w-full max-w-5xl mx-auto px-6 md:px-10 py-10 md:py-16 content-panel border-double border-4 border-[#996515]/40 section-reveal">
 
                     {/* Wedding title */}
-                    <h1 className="text-[#B22222] font-serif text-4xl md:text-7xl lg:text-8xl mb-6 md:mb-8 leading-tight">
-                        {t.theWeddingOf} <br />
-                        <span className="italic font-normal block mt-4 md:mt-6 text-[#996515]">
-                            {t.coupleShortNames}
-                        </span>
-                    </h1>
+                    <div className="mb-6 md:mb-8">
+                        <div className="flex justify-center items-end gap-6 md:gap-12 mb-8 md:mb-12 text-[#996515] italic font-serif font-normal text-4xl md:text-6xl lg:text-7xl">
+                            <div className="flex flex-col items-center group">
+                                <img src={groomImg} alt="Groom" className="w-28 h-28 md:w-44 md:h-44 object-cover object-top rounded-full border-4 border-[#D4AF37] mb-0 shadow-2xl transition hover:scale-105" />
+                            </div>
+
+                            <div className="flex flex-col items-center group">
+                                <img src={brideImg} alt="Bride" className="w-28 h-28 md:w-44 md:h-44 object-cover object-top rounded-full border-4 border-[#D4AF37] mb-0 shadow-2xl transition hover:scale-105" />
+                            </div>
+                        </div>
+
+                        <h1 className="text-[#B22222] font-serif text-4xl md:text-7xl lg:text-8xl mb-6 md:mb-8 leading-tight">
+                            {t.theWeddingOf}
+                            <span className="italic font-normal block mt-4 md:mt-6 text-[#996515]">
+                                {t.coupleShortNames}
+                            </span>
+                        </h1>
+                    </div>
 
                     {/* Personalized greeting & invitation text */}
                     <div className=" mx-auto border-y-2 border-[#996515]/50 py-8 md:py-12 px-4 md:px-8">
                         <p className="text-[#B22222] text-xl md:text-3xl font-serif leading-relaxed italic mb-6 md:mb-8">
                             {greeting}
                         </p>
-                        <p className="text-slate-800 text-base md:text-xl leading-relaxed font-medium max-w-lg mx-auto">
+                        <p className="text-slate-800 text-base md:text-xl leading-relaxed font-medium max-w-lg mx-auto whitespace-pre-line">
                             {t.invitationBody}
                         </p>
                     </div>

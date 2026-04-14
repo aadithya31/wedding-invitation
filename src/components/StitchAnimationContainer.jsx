@@ -1,24 +1,45 @@
+import { useRef, useEffect } from 'react';
 import useTranslation from '../i18n/useTranslation';
 
-/**
- * StitchAnimationContainer
- * 
- * A dedicated container for the Stitch animation integration.
- * This component provides a responsive, centered placeholder
- * that can hold an iframe, canvas, or any embedded animation.
- * 
- * INTEGRATION INSTRUCTIONS:
- * 1. Replace the placeholder content below with your Stitch animation
- * 2. The container supports iframe, canvas, or any block-level element
- * 3. CSS ensures the content stays centered and scales responsively
- * 4. The container maintains a 16:9 aspect ratio by default
- */
+// Use Vite's glob import to automatically pull all JPEGs from the corousal folder
+const modules = import.meta.glob('../assets/corousal/*.jpeg', { eager: true });
+const images = Object.values(modules).map((mod) => mod.default);
+
 export default function StitchAnimationContainer() {
     const t = useTranslation();
+    const scrollRef = useRef(null);
+
+    // Auto-scroll logic for the image slider
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (scrollRef.current) {
+                const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+                // If reached end, scroll back to start, else scroll to the next slide
+                if (scrollLeft + clientWidth >= scrollWidth - 10) {
+                    scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    scrollRef.current.scrollBy({ left: clientWidth, behavior: 'smooth' });
+                }
+            }
+        }, 10000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const slideLeft = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollBy({ left: -scrollRef.current.clientWidth, behavior: 'smooth' });
+        }
+    };
+
+    const slideRight = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollBy({ left: scrollRef.current.clientWidth, behavior: 'smooth' });
+        }
+    };
 
     return (
-        <section className="relative z-10 py-6 md:py-10 w-full">
-            <div className="max-w-4xl mx-auto px-4 md:px-6">
+        <section id="us" className="relative z-10 py-6 md:py-10 w-full">
+            <div className="max-w-5xl mx-auto px-4 md:px-6">
 
                 {/* Decorative header */}
                 <div className="text-center mb-8 md:mb-12">
@@ -31,52 +52,42 @@ export default function StitchAnimationContainer() {
                     </div>
                 </div>
 
-                {/* ====================================================
-            STITCH ANIMATION CONTAINER
-            
-            This is the integration point for the Stitch animation.
-            The surrounding CSS handles iframe or canvas scaling
-            so the animation stays centered and responsive.
-            
-            Supported child elements:
-            - <iframe> for embedded web animations
-            - <canvas> for WebGL/2D canvas animations
-            - Any block-level element
-            
-            The container maintains a 16:9 aspect ratio and is
-            capped at 800px max width for optimal viewing.
-            ==================================================== */}
-                <div
-                    id="StitchAnimationContainer"
-                    className="stitch-container content-panel border-2 border-[#996515]/30 rounded-lg overflow-hidden"
-                >
-                    {/* <!-- STITCH_ANIMATION_PLACEHOLDER --> */}
-                    {/* 
-            Replace this placeholder with your Stitch animation.
-            Example integrations:
-            
-            For iframe:
-            <iframe 
-              src="YOUR_STITCH_ANIMATION_URL" 
-              title="Wedding Animation"
-              allowFullScreen
-            />
-            
-            For canvas:
-            <canvas id="stitch-canvas" />
-          */}
-                    <div className="flex flex-col items-center justify-center text-center p-8 md:p-12 opacity-40">
-                        <svg width="60" height="60" viewBox="0 0 80 80" className="mb-4 lotus-animate">
-                            <circle cx="40" cy="40" r="5" fill="#996515" />
-                            <ellipse cx="40" cy="25" rx="5" ry="12" fill="#996515" opacity="0.4" />
-                            <ellipse cx="40" cy="55" rx="5" ry="12" fill="#996515" opacity="0.4" />
-                            <ellipse cx="25" cy="40" rx="12" ry="5" fill="#996515" opacity="0.4" />
-                            <ellipse cx="55" cy="40" rx="12" ry="5" fill="#996515" opacity="0.4" />
-                        </svg>
-                        <p className="text-[#996515] font-serif italic text-sm">
-                            {t.animationPlaceholder}
-                        </p>
+                {/* Carousel */}
+                <div className="relative w-full overflow-hidden group">
+                    <div
+                        ref={scrollRef}
+                        className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+                    >
+                        {images.length > 0 ? images.map((src, index) => (
+                            <div key={index} className="flex-none w-full snap-center h-[50vh] md:h-[70vh] flex items-center justify-center">
+                                <img
+                                    src={src}
+                                    alt={`Celebration ${index + 1}`}
+                                    className="w-full h-full object-contain rounded-lg drop-shadow-[0_10px_15px_rgba(153,101,21,0.2)]"
+                                />
+                            </div>
+                        )) : (
+                            <div className="flex-none w-full snap-center h-[50vh] flex items-center justify-center">
+                                <p className="text-[#996515] font-serif italic">{t.animationPlaceholder}</p>
+                            </div>
+                        )}
                     </div>
+
+                    {/* Navigation controls */}
+                    <button
+                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-[#FDFBF7]/80 hover:bg-[#D4AF37] text-[#996515] hover:text-white rounded-full p-2 md:p-3 shadow-lg opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm z-10"
+                        onClick={slideLeft}
+                        aria-label="Previous slide"
+                    >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button
+                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-[#FDFBF7]/80 hover:bg-[#D4AF37] text-[#996515] hover:text-white rounded-full p-2 md:p-3 shadow-lg opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm z-10"
+                        onClick={slideRight}
+                        aria-label="Next slide"
+                    >
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
                 </div>
 
             </div>

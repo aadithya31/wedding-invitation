@@ -13,6 +13,7 @@ export default function Header({ activeSection }) {
 
     const navItems = [
         { id: 'story', label: t.navOurStory, href: '#story' },
+        { id: 'us', label: 'Us', href: '#us' },
         { id: 'ceremony', label: t.navCeremony, href: '#ceremony' },
         // { id: 'location', label: t.navLocation, href: '#location' },
     ];

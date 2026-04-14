@@ -30,38 +30,29 @@ export default function App() {
     }
   }, []);
 
-  // Background music: start on first user interaction (browser autoplay policy)
+  // Background music setup
   useEffect(() => {
-    const audio = new Audio('/Kadalalle.mp3');
+    const audio = new Audio('/love.mpeg');
     audio.loop = true;
     audio.volume = 0.4;
     audioRef.current = audio;
 
-    const startMusic = () => {
-      audio.play().catch(() => {});
-      // Remove listeners after first successful play
-      document.removeEventListener('click', startMusic);
-      document.removeEventListener('touchstart', startMusic);
-      document.removeEventListener('scroll', startMusic);
-    };
-
-    document.addEventListener('click', startMusic);
-    document.addEventListener('touchstart', startMusic);
-    document.addEventListener('scroll', startMusic);
-
     return () => {
       audio.pause();
       audio.src = '';
-      document.removeEventListener('click', startMusic);
-      document.removeEventListener('touchstart', startMusic);
-      document.removeEventListener('scroll', startMusic);
     };
+  }, []);
+
+  const handleStartMusic = useCallback(() => {
+    if (audioRef.current && audioRef.current.paused) {
+      audioRef.current.play().catch(() => { });
+    }
   }, []);
 
   // Intersection Observer for active section tracking & reveal animations
   const setupObservers = useCallback(() => {
     // 1. Active section observer (for nav highlighting)
-    const sectionIds = ['story', 'ceremony', 'location'];
+    const sectionIds = ['story', 'us', 'ceremony', 'location'];
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -109,7 +100,7 @@ export default function App() {
   return (
     <>
       {/* Section A: The Entrance — Animated Curtain */}
-      <EntranceCurtain />
+      <EntranceCurtain onOpen={handleStartMusic} />
 
       {/* Main Application — Wrapped in Zari Border Frame */}
       <div className="flex min-h-screen w-full mx-auto flex-col p-0 zari-border-outer">
