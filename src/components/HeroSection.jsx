@@ -107,7 +107,7 @@ export default function HeroSection({ guestName }) {
                         <p className="text-[#B22222] text-xl md:text-3xl font-serif leading-relaxed italic mb-6 md:mb-8">
                             {greeting}
                         </p>
-                        <p className="text-slate-800 text-base md:text-xl leading-relaxed font-medium mx-auto whitespace-pre-line text-justify" style={{ textAlignLast: 'center' }}>
+                        <p className="text-slate-800 text-base md:text-xl leading-relaxed font-medium mx-auto whitespace-pre-line text-justify">
                             {t.invitationBody}
                         </p>
                     </div>
