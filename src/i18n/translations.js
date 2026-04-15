@@ -75,7 +75,7 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
         animationPlaceholder: 'Animation will appear here',
 
         // Footer
-        blessingsLine: 'Blessings Only • Aadithya & Poorvika • 2023',
+        blessingsLine: 'Blessings Only • Aadithya & Poorvika • 2022 to Forever',
         madeWithLove: 'Made with love in the tradition of Kanchipuram silk',
     },
 
@@ -213,7 +213,7 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
         animationPlaceholder: 'ആനിമേഷൻ ഇവിടെ ദൃശ്യമാകും',
 
         // Footer
-        blessingsLine: 'അനുഗ്രഹങ്ങൾ മാത്രം • ആദിത്യ & പൂർവ്വിക • 2023',
+        blessingsLine: 'അനുഗ്രഹങ്ങൾ മാത്രം • ആദിത്യ & പൂർവ്വിക • 2022 to Forever',
         madeWithLove: 'കാഞ്ചീപുരം പട്ടിന്റെ പാരമ്പര്യത്തിൽ സ്നേഹത്തോടെ നിർമ്മിച്ചത്',
     },
 };
