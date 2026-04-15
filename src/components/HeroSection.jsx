@@ -1,6 +1,22 @@
+import { useState, useEffect } from 'react';
 import useTranslation from '../i18n/useTranslation';
 import groomImg from '../assets/Groom.jpg';
 import brideImg from '../assets/Bride.jpeg';
+
+// Target: May 3 at 9:30 AM IST (UTC+5:30) → 04:00 UTC
+const WEDDING_TARGET = new Date('2026-05-03T04:00:00Z');
+
+function getTimeLeft() {
+    const now = new Date();
+    const diff = WEDDING_TARGET - now;
+    if (diff <= 0) return null;
+    return {
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+    };
+}
 
 /**
  * HeroSection — Section B: The Card
@@ -11,6 +27,19 @@ import brideImg from '../assets/Bride.jpeg';
  */
 export default function HeroSection({ guestName }) {
     const t = useTranslation();
+
+    // Countdown state
+    const [timeLeft, setTimeLeft] = useState(getTimeLeft);
+
+    useEffect(() => {
+        if (!timeLeft) return; // already past — no timer needed
+        const id = setInterval(() => {
+            const tl = getTimeLeft();
+            if (!tl) clearInterval(id);
+            setTimeLeft(tl);
+        }, 1000);
+        return () => clearInterval(id);
+    }, []);
 
     // Split the couple's short names to place images above them individually
     const names = (t.coupleShortNames || "").split(' & ');
@@ -135,6 +164,76 @@ export default function HeroSection({ guestName }) {
                         <div className="h-px w-20 bg-gradient-to-l from-transparent to-[#996515]/70" />
                     </div>
                 </div>
+
+                {/* Countdown Timer — disappears after May 3 9:30 AM IST */}
+                {timeLeft && (
+                    <div className="mt-10 md:mt-14 section-reveal" style={{ animation: 'fadeInUp 0.8s ease' }}>
+                        <p className="text-[#996515] font-serif italic text-lg md:text-2xl tracking-widest mb-5 uppercase">
+                            Counting Down To The Big Day
+                        </p>
+                        <div className="flex justify-center items-center gap-3 md:gap-5">
+                            {[
+                                { value: timeLeft.days, label: 'Days' },
+                                { value: timeLeft.hours, label: 'Hours' },
+                                { value: timeLeft.minutes, label: 'Minutes' },
+                                { value: timeLeft.seconds, label: 'Seconds' },
+                            ].map((unit, i) => (
+                                <div key={unit.label} className="flex items-center gap-3 md:gap-5">
+                                    <div
+                                        className="flex flex-col items-center"
+                                        style={{
+                                            background: 'linear-gradient(145deg, rgba(253,251,247,0.95), rgba(212,175,55,0.08))',
+                                            border: '2px solid rgba(153,101,21,0.35)',
+                                            borderRadius: '14px',
+                                            padding: '14px 12px 10px',
+                                            minWidth: '68px',
+                                            boxShadow: '0 8px 32px rgba(153,101,21,0.12), inset 0 1px 0 rgba(255,255,255,0.8)',
+                                        }}
+                                    >
+                                        <span
+                                            className="font-serif"
+                                            style={{
+                                                fontSize: 'clamp(1.8rem, 5vw, 3rem)',
+                                                fontWeight: 700,
+                                                color: '#B22222',
+                                                lineHeight: 1,
+                                                fontVariantNumeric: 'tabular-nums',
+                                            }}
+                                        >
+                                            {String(unit.value).padStart(2, '0')}
+                                        </span>
+                                        <span
+                                            style={{
+                                                fontSize: '0.65rem',
+                                                letterSpacing: '0.15em',
+                                                textTransform: 'uppercase',
+                                                color: '#996515',
+                                                marginTop: '6px',
+                                                fontWeight: 600,
+                                            }}
+                                        >
+                                            {unit.label}
+                                        </span>
+                                    </div>
+                                    {i < 3 && (
+                                        <span
+                                            className="font-serif"
+                                            style={{
+                                                fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
+                                                color: '#D4AF37',
+                                                fontWeight: 700,
+                                                lineHeight: 1,
+                                                marginBottom: '14px',
+                                            }}
+                                        >
+                                            :
+                                        </span>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 {/* CTA Row: Save the Date + Date Card */}
                 <div className="mt-8 md:mt-12 flex flex-col md:flex-row justify-center gap-6 md:gap-10 items-center section-reveal">
