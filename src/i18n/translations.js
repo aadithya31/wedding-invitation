@@ -35,14 +35,14 @@ And it did.
 
 Now, with full hearts and a story we never saw coming, we’re choosing each other forever.`,
         saveTheDate: 'Save the Date',
-        weddingDate: '3rd May 2025',
+        weddingDate: '3rd May 2026',
 
         // EventDetails
         eventDetails: 'Event Details',
         eventsList: [
             {
                 title: 'Prewedding Reception',
-                date: 'May 02, 2025',
+                date: 'May 02, 2026',
                 time: '6:00 PM Onwards',
                 venueArea: 'Nelamangala, Bangalore North',
                 venueName: 'SLR Conventional Hall',
@@ -51,7 +51,7 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
             },
             {
                 title: 'Wedding',
-                date: 'May 03, 2025',
+                date: 'May 03, 2026',
                 time: '08:15 AM - 09:30 AM',
                 venueArea: 'Nelamangala, Bangalore North',
                 venueName: 'SLR Conventional Hall',
@@ -60,7 +60,7 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
             },
             {
                 title: 'Post Wedding Reception',
-                date: 'May 04, 2025',
+                date: 'May 10, 2026',
                 time: '5:00 PM Onwards',
                 venueArea: 'Kozhikode, Kerala',
                 venueName: 'Srushty Residence',
@@ -111,7 +111,7 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
         eventsList: [
             {
                 title: 'Prewedding Reception',
-                date: 'May 02, 2025',
+                date: 'May 02, 2026',
                 time: '6:00 PM Onwards',
                 venueArea: 'Nelamangala, Bangalore North',
                 venueName: 'SLR Conventional Hall',
@@ -120,7 +120,7 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
             },
             {
                 title: 'Wedding',
-                date: 'May 03, 2025',
+                date: 'May 03, 2026',
                 time: '08:15 AM - 09:30 AM',
                 venueArea: 'Nelamangala, Bangalore North',
                 venueName: 'SLR Conventional Hall',
@@ -129,7 +129,7 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
             },
             {
                 title: 'Post Wedding Reception',
-                date: 'May 04, 2025',
+                date: 'May 10, 2026',
                 time: '5:00 PM Onwards',
                 venueArea: 'Kozhikode, Kerala',
                 venueName: 'Srushty Residence',
@@ -173,14 +173,14 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
 
 ഇപ്പോൾ, നിറഞ്ഞ ഹൃദയത്തോടെയും ഞങ്ങൾ ഒരിക്കലും പ്രതീക്ഷിക്കാത്ത ഈ കഥയോടെയും, ഞങ്ങൾ എന്നെന്നേക്കുമായി പരസ്പരം തിരഞ്ഞെടുക്കുന്നു.`,
         saveTheDate: 'തീയതി ഓർക്കുക',
-        weddingDate: '3 മെയ് 2025',
+        weddingDate: '3 മെയ് 2026',
 
         // EventDetails
         eventDetails: 'ചടങ്ങ് വിവരങ്ങൾ',
         eventsList: [
             {
                 title: 'Prewedding Reception',
-                date: 'May 02, 2025',
+                date: 'May 02, 2026',
                 time: '6:00 PM Onwards',
                 venueArea: 'Nelamangala, Bangalore North',
                 venueName: 'SLR Conventional Hall',
@@ -189,7 +189,7 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
             },
             {
                 title: 'Wedding',
-                date: 'May 03, 2025',
+                date: 'May 03, 2026',
                 time: '08:15 AM - 09:30 AM',
                 venueArea: 'Nelamangala, Bangalore North',
                 venueName: 'SLR Conventional Hall',
@@ -198,7 +198,7 @@ Now, with full hearts and a story we never saw coming, we’re choosing each oth
             },
             {
                 title: 'Post Wedding Reception',
-                date: 'May 04, 2025',
+                date: 'May 10, 2026',
                 time: '5:00 PM Onwards',
                 venueArea: 'Kozhikode, Kerala',
                 venueName: 'Srushty Residence',
