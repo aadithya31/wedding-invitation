@@ -171,29 +171,29 @@ export default function HeroSection({ guestName }) {
                         <p className="text-[#996515] font-serif italic text-lg md:text-2xl tracking-widest mb-5 uppercase">
                             Counting Down To The Big Day
                         </p>
-                        <div className="flex justify-center items-center gap-3 md:gap-5">
+                        <div className="flex flex-wrap justify-center items-center gap-1.5 sm:gap-3 md:gap-5">
                             {[
                                 { value: timeLeft.days, label: 'Days' },
                                 { value: timeLeft.hours, label: 'Hours' },
-                                { value: timeLeft.minutes, label: 'Minutes' },
-                                { value: timeLeft.seconds, label: 'Seconds' },
+                                { value: timeLeft.minutes, label: 'Min' },
+                                { value: timeLeft.seconds, label: 'Sec' },
                             ].map((unit, i) => (
-                                <div key={unit.label} className="flex items-center gap-3 md:gap-5">
+                                <div key={unit.label} className="flex items-center gap-1.5 sm:gap-3 md:gap-5">
                                     <div
                                         className="flex flex-col items-center"
                                         style={{
                                             background: 'linear-gradient(145deg, rgba(253,251,247,0.95), rgba(212,175,55,0.08))',
                                             border: '2px solid rgba(153,101,21,0.35)',
-                                            borderRadius: '14px',
-                                            padding: '14px 12px 10px',
-                                            minWidth: '68px',
+                                            borderRadius: '12px',
+                                            padding: 'clamp(8px, 2vw, 14px) clamp(6px, 2vw, 12px) clamp(6px, 2vw, 10px)',
+                                            minWidth: 'clamp(48px, 14vw, 68px)',
                                             boxShadow: '0 8px 32px rgba(153,101,21,0.12), inset 0 1px 0 rgba(255,255,255,0.8)',
                                         }}
                                     >
                                         <span
                                             className="font-serif"
                                             style={{
-                                                fontSize: 'clamp(1.8rem, 5vw, 3rem)',
+                                                fontSize: 'clamp(1.25rem, 5vw, 3rem)',
                                                 fontWeight: 700,
                                                 color: '#B22222',
                                                 lineHeight: 1,
@@ -204,11 +204,11 @@ export default function HeroSection({ guestName }) {
                                         </span>
                                         <span
                                             style={{
-                                                fontSize: '0.65rem',
-                                                letterSpacing: '0.15em',
+                                                fontSize: 'clamp(0.5rem, 1.5vw, 0.65rem)',
+                                                letterSpacing: '0.12em',
                                                 textTransform: 'uppercase',
                                                 color: '#996515',
-                                                marginTop: '6px',
+                                                marginTop: '4px',
                                                 fontWeight: 600,
                                             }}
                                         >
@@ -219,11 +219,11 @@ export default function HeroSection({ guestName }) {
                                         <span
                                             className="font-serif"
                                             style={{
-                                                fontSize: 'clamp(1.4rem, 4vw, 2.2rem)',
+                                                fontSize: 'clamp(1rem, 3vw, 2.2rem)',
                                                 color: '#D4AF37',
                                                 fontWeight: 700,
                                                 lineHeight: 1,
-                                                marginBottom: '14px',
+                                                marginBottom: '10px',
                                             }}
                                         >
                                             :
